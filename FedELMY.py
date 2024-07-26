@@ -40,7 +40,7 @@ upsample = torch.nn.Upsample(mode='nearest', scale_factor=7)
 
 preset_config = {
     "warmup_epochs": -1, # When to start split learning by different hyperparameters
-    "fedavgEpochs": 1, # Number of rounds of training
+    "shots": 1, # Number of shots
     "num_users": 10, # Number of users: K
     "num_classes": 10, # Number of classes
     "num_models": 5, # Number of models per user for model pool
@@ -114,7 +114,7 @@ if __name__ == '__main__':
         id = config.id
     print("id: {}".format(id))
     time.sleep(3)
-    if config.fedavgEpochs == 1:
+    if config.shots == 1:
         hps = hyperparameters_one_shot[config.dataset]
     else:
         hps = hyperparameters[config.dataset]
@@ -122,7 +122,7 @@ if __name__ == '__main__':
     saved_model_weights_pool = []
     # ===============================================
     model_weights_pool = []
-    for i in range(config.fedavgEpochs):  # FEDAVG TEST
+    for i in range(config.shots):
         local_weights = []
         user_avg_weights = []
         users = []
@@ -197,7 +197,7 @@ if __name__ == '__main__':
     output = {
         "id": id,
         "seed": config.seed,
-        "fedavgEpochs": config.fedavgEpochs,
+        "shots": config.shots,
         "time": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "dataset": config.dataset,
         "model": config.model,
