@@ -39,56 +39,56 @@ warnings.filterwarnings('ignore')
 upsample = torch.nn.Upsample(mode='nearest', scale_factor=7)
 
 preset_config = {
-    "warmup_epochs": -1,# When to start split learning by different hyperparameters
-    "fedavgEpochs": 1,# number of rounds of training
-    "num_users": 10,# number of users: K
-    "num_classes": 10,# number of classes
-    "num_models": 5,# number of models per user for model pool
-    "frac": 1,# the fraction of clients: C
-    "local_ep": -1,# the number of local epochs: E
-    "max_hp_count": 9999,# the number of local epochs: E
-    "local_bs": 128,# local batch size: B
-    "lr": 0.01,# learning rate
+    "warmup_epochs": -1, # When to start split learning by different hyperparameters
+    "fedavgEpochs": 1, # Number of rounds of training
+    "num_users": 10, # Number of users: K
+    "num_classes": 10, # Number of classes
+    "num_models": 5, # Number of models per user for model pool
+    "frac": 1, # The fraction of clients: C
+    "local_ep": -1, # The number of local epochs: E
+    "max_hp_count": 9999, # The number of local epochs: E
+    "local_bs": 128, # Local batch size: B
+    "lr": 0.01, # Learning rate
     "image_size": -1,
-    "validation_ratio": 0.1,# Validation dataset ratio
-    "momentum": 0.9,# SGD momentum (default: 0.5)
-    "weight_decay": 1e-4,# SGD weight decay (default: 1e-4)
+    "validation_ratio": 0.1, # Validation dataset ratio
+    "momentum": 0.9, # SGD momentum (default: 0.5)
+    "weight_decay": 1e-4, # SGD weight decay (default: 1e-4)
     "optimizer": "-1",
     "record_distances": 0,
     "note": "",
 
-    "dataset": "cifar10",# name of dataset
-    "random_position": "inside",# Position of random
-    "iid": 0,# Default set to IID. Set to 0 for non-IID.
-    "mu": 1,# mu for fedprox
+    "dataset": "cifar10", # Name of dataset
+    "random_position": "inside", # Position of random
+    "iid": 0, # Default set to IID. Set to 0 for non-IID.
+    "mu": 1, # \mu for fedprox
     "optimization_method": "none",
-    "alpha": 1,# alpha for the regularization term
-    "beta": 1,# beta for the regularization term
-    "order": 1,# order of domain shift tasks
-    "save_every_model": 0,#
+    "alpha": 1, # alpha for the regularization term
+    "beta": 1, # beta for the regularization term
+    "order": 1, # Order of domain shift tasks
+    "save_every_model": 0,
 
-    "adv": 1,# scaling factor for adv loss
-    "bn": 1,# scaling factor for BN regularization
-    "oh": 1,# scaling factor for one hot loss (cross entropy)
-    "act": 0,# scaling factor for activation loss used in DAFL
+    "adv": 1, # Scaling factor for adv loss
+    "bn": 1, # Scaling factor for BN regularization
+    "oh": 1, # Scaling factor for one hot loss (cross entropy)
+    "act": 0, # Scaling factor for activation loss used in DAFL
     "save_dir": "run/synthesis",
-    "partition": "dirichlet",#
-    "betas": 0.3,# Split distribution, If betas is set to a smaller value, then the partition is more unbalanced
+    "partition": "dirichlet", # Partition type
+    "betas": 0.3, # Split distribution, If betas is set to a smaller value, then the partition is more unbalanced
 
-    "lr_g": 1e-3,#initial learning rate for generation
-    "T": 20,#
-    "g_steps": 30,# number of iterations for generation
-    "batch_size": 256,# number of total iterations in each epoch
-    "nz": 256,# number of total iterations in each epoch
+    "lr_g": 1e-3, # Initial learning rate for generation
+    "T": 20,
+    "g_steps": 30, # Number of iterations for generation
+    "batch_size": 256, # Number of total iterations in each epoch
+    "nz": 256, # Number of total iterations in each epoch
     "synthesis_batch_size": 256,
 
-    "seed": 1,# seed for initializing training
-    "epochs": 50,
+    "seed": 1, # Seed for initializing training
+    "epochs": 50, # Total number of training epochs
     "type": "pretrain",
-    "model": "cnn",
+    "model": "cnn", # Model name
     "other": "",
-    "device": "cuda:0",# Device ID
-    "id": "0"# File ID
+    "device": "cuda:0", # GPU Device ID
+    "id": "0" # Experiment ID
 }
 
 if __name__ == '__main__':
